@@ -1,0 +1,20 @@
+[ 
+    {
+        "name": "grass",
+        "columns": 2,
+        "frames": 3,
+        "collides": true
+    },
+    {
+        "name": "water",
+        "columns": 2,
+        "frames": 3,
+        "collides": false
+    },
+    {
+        "name": "rock",
+        "columns": 2,
+        "frames": 3,
+        "collides": false
+    }
+]
