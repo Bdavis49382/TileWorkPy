@@ -1,10 +1,10 @@
 from vector import Vector
 class Tile:
-    def __init__(self, position,material,frame,tile_size,offset=None):
+    def __init__(self, position,material,frame,tilemap,offset=None):
         self.material = material
         self.position = position
         self.frame = frame
-        self.tile_size = tile_size
+        self.tilemap = tilemap
         if offset == None:
             self.offset = Vector(0,0)
         else:
@@ -12,7 +12,7 @@ class Tile:
         
     
     def get_tile_position(self):
-        return (self.position + self.offset) / Vector(self.tile_size,self.tile_size)
+        return (self.position + self.offset) / Vector(self.tilemap.tile_size,self.tilemap.tile_size)
     
     def draw(self,screen):
         screen.blit(self.material.images[self.frame],(self.position + self.offset).tuple())

@@ -7,6 +7,7 @@ class EventHandler:
         self.keydown_events = {}
         self.mouse_events = {}
         self.keyup_events = {}
+        self.mouse_scroll_events = {}
         self.misc = {}
     
     def add_event(self,type,catalyst,function,parameters = []):
@@ -26,6 +27,8 @@ class EventHandler:
                 self.keyup_events[catalyst] = [function, parameters]
             elif type == 'mouse':
                 self.mouse_events[catalyst] = [function, parameters]
+            elif type == 'mouse_scroll':
+                self.mouse_scroll_events[catalyst] = [function,parameters]
             else:
                 print("Error")
         
@@ -48,6 +51,9 @@ class EventHandler:
                     self.mouse_events[event.button][0](*self.mouse_events[event.button][1])
                 elif 'mouse' in self.misc:
                     self.misc['mouse'][0](*self.misc['mouse'][1])
+            elif event.type == pygame.MOUSEWHEEL:
+                if event.y in self.mouse_scroll_events:
+                    self.mouse_scroll_events[event.y][0](*self.mouse_scroll_events[event.y][1])
             elif event.type == pygame.KEYUP:
                 if event.key in self.keyup_events:
                     self.keyup_events[event.key][0](*self.keydown_events[event.key][1])

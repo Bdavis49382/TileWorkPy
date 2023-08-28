@@ -1,0 +1,6 @@
+{
+    "materials": "res/materials.json",
+    "entities": "res/entities.json",
+    "text_maps": "res/text_maps.json",
+    "image_path": "res/images/{0}.png"
+}
